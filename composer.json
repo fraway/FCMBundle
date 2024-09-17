@@ -3,7 +3,19 @@
   "type": "symfony-bundle",
   "description": "A Bundle for Symfony projects to send notifications in mobile devices through Firebase Cloud Messaging API",
   "license": "MIT",
-  "keywords": ["PHP","FCM","Google","Firebase","Cloud","Notifications","Symfony", "Bundle","Android","iOS","Chrome"],
+  "keywords": [
+    "PHP",
+    "FCM",
+    "Google",
+    "Firebase",
+    "Cloud",
+    "Notifications",
+    "Symfony",
+    "Bundle",
+    "Android",
+    "iOS",
+    "Chrome"
+  ],
   "homepage": "https://github.com/redjanym/FCMBundle",
   "authors": [
     {
@@ -12,9 +24,15 @@
       "role": "Developer"
     }
   ],
-    "require": {
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/fraway/php-firebase-cloud-messaging.git"
+    }
+  ],
+  "require": {
     "php": ">=5.3",
-    "redjanym/php-firebase-cloud-messaging": "1.*"
+    "redjanym/php-firebase-cloud-messaging": "dev-hotfix/fcm"
   },
   "autoload": {
     "psr-4": {

@@ -40,6 +40,11 @@ class FCMClient
         $this->client = $client;
     }
 
+    public function setProxyApiUrl($url)
+    {
+        $this->client->setProxyApiUrl($url);
+    }
+
     /**
      * Create a notification of type Device Notification
      *
@@ -55,7 +60,7 @@ class FCMClient
             ->setTitle($title)
             ->setBody($body);
 
-        if(is_array($token)){
+        if (is_array($token)) {
             $notification->setDeviceTokens($token);
         } else {
             $notification->addDeviceToken($token);
@@ -92,7 +97,7 @@ class FCMClient
      */
     public function subscribeDevicesToTopic($topicId = null, $deviceTokens = array())
     {
-        if(!$topicId || empty($deviceTokens)){
+        if (!$topicId || empty($deviceTokens)) {
             throw new \InvalidArgumentException("Please check arguments!");
         }
 
@@ -108,7 +113,7 @@ class FCMClient
      */
     public function removeDevicesFromTopic($topicId = null, $deviceTokens = array())
     {
-        if(!$topicId || empty($deviceTokens)){
+        if (!$topicId || empty($deviceTokens)) {
             throw new \InvalidArgumentException("Please check arguments!");
         }
 
@@ -135,7 +140,7 @@ class FCMClient
             ->setCollapseKey($notification->getCollapseKey());
 
         // Check for the type of Notification
-        if($notification instanceof DeviceNotification){
+        if ($notification instanceof DeviceNotification) {
             foreach ($notification->getDeviceTokens() as $deviceToken) {
                 $message->addRecipient(new Device($deviceToken));
             }
